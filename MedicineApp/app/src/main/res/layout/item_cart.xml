@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="cart"
+            type="com.test.app.data.model.Cart" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_confirm_payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_3sdp"
+            app:cardElevation="@dimen/_3sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_8sdp">
+
+                <ImageView
+                    android:id="@+id/ivMedicine"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_centerHorizontal="true"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/medicine"
+                    app:imageDrawable="@{@drawable/medicine}"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBrandName"
+                    style="@style/TextStyle.Small"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/roboto_medium"
+                    android:maxLines="2"
+                    android:text="@{cart.brandname}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/ivMedicine"
+                    app:layout_constraintTop_toTopOf="@+id/ivMedicine"
+                    tools:text="Althrocin 500mg Tablet 10'S" />
+
+                <TextView
+                    android:id="@+id/tvPackSize"
+                    style="@style/TextStyle.Small"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:text="@{cart.packsize+` `+cart.drugtype.toLowerCase()}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/ivMedicine"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBrandName"
+                    tools:text="10 Tablets" />
+
+                <TextView
+                    android:id="@+id/tvCompName"
+                    style="@style/TextStyle.Small"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginRight="@dimen/_3sdp"
+                    android:text="@{`Sold By : `+cart.company}"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/ivMedicine"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPackSize"
+                    tools:text="Sold By : ARETAEUS PHARMACEUTICALS PVT LTD" />
+
+                <TextView
+                    android:id="@+id/tvMrp"
+                    style="@style/TextStyle.Small"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="@string/mrp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCompName" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    style="@style/TextStyle.Small"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    app:layout_constraintLeft_toRightOf="@+id/tvMrp"
+                    app:layout_constraintTop_toTopOf="@+id/tvMrp"
+                    tools:text="₹10" />
+
+                <TextView
+                    android:id="@+id/tvDisPrice"
+                    style="@style/TextStyle.Small"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/green"
+                    android:visibility="@{cart.price.equalsIgnoreCase(cart.sellingprice) ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintLeft_toRightOf="@+id/tvPrice"
+                    app:layout_constraintTop_toTopOf="@+id/tvMrp"
+                    tools:text="₹10" />
+
+
+                <View
+                    android:id="@+id/div"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@color/div"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMrp" />
+
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/btnMinus"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginLeft="@dimen/_11sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:background="@drawable/circle_primary_outline"
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/minus"
+                    android:tint="@color/colorPrimary"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/div" />
+
+                <TextView
+                    android:id="@+id/tvQuantity"
+                    style="@style/TextStyle.Medium"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/_6sdp"
+                    android:layout_marginRight="@dimen/_6sdp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:minWidth="@dimen/_20sdp"
+                    android:text="@{``+cart.quantity}"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnMinus"
+                    app:layout_constraintLeft_toRightOf="@+id/btnMinus"
+                    app:layout_constraintTop_toTopOf="@+id/btnMinus"
+                    tools:text="10" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/btnPlus"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginLeft="@dimen/_11sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:background="@drawable/circle_primary_filled"
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/plus"
+                    app:layout_constraintLeft_toRightOf="@+id/tvQuantity"
+                    app:layout_constraintTop_toBottomOf="@+id/div" />
+
+                <TextView
+                    android:id="@+id/tvRemove"
+                    style="@style/TextStyle.Small"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_14sdp"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@string/remove"
+                    android:textColor="@color/gray7c"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/div" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</layout>

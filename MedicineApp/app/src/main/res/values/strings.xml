@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Medicine Ecart</string>
+    <string name="medicine_detail">Medicine Detail</string>
+    <string name="my_cart">My Cart</string>
+    <string name="mrp">MRP</string>
+    <string name="rs">₹%s</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="cart">Cart</string>
+    <string name="added_to_cart">Added to cart</string>
+    <string name="error_pls_try_again">Error, please try again</string>
+    <string name="your_cart_items_will_appear_here">Your cart items will appear here</string>
+    <string name="search">Search</string>
+    <string name="remove">Remove</string>
+
+</resources>
