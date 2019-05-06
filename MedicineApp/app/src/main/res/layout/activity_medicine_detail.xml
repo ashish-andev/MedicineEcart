@@ -142,7 +142,7 @@
             android:layout_marginLeft="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_12sdp"
-            android:text="@{`CIMS Category : `+medicine.cimssubcategory}"
+            android:text="@{`CIMS Subcategory : `+medicine.cimssubcategory}"
             android:textSize="@dimen/_11sdp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCimsCat"
